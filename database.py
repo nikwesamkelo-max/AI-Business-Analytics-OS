@@ -36,3 +36,56 @@ def create_tables():
     conn.close()
 
     print("✅ Database is ready.")
+    
+def add_trip(customer_name, phone, pickup, destination,
+             vehicle, driver, fare, fuel_cost,
+             payment_method, trip_date):
+
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    INSERT INTO trips (
+        customer_name,
+        phone,
+        pickup,
+        destination,
+        vehicle,
+        driver,
+        fare,
+        fuel_cost,
+        payment_method,
+        trip_date
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        customer_name,
+        phone,
+        pickup,
+        destination,
+        vehicle,
+        driver,
+        fare,
+        fuel_cost,
+        payment_method,
+        trip_date
+    ))
+
+    conn.commit()
+    conn.close()
+
+    print("✅ Trip added successfully!")
+
+
+def view_trips():
+
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM trips")
+
+    trips = cursor.fetchall()
+
+    conn.close()
+
+    return trips
