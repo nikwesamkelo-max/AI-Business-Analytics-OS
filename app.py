@@ -1,4 +1,4 @@
-from database import create_tables, add_trip
+from database import create_tables, add_trip, view_trips
 from analytics import (
     total_trips,
     total_revenue,
@@ -9,22 +9,8 @@ from analytics import (
     most_popular_route
 )
 
-def main():
 
-    create_tables()
-
-    add_trip(
-        customer_name="John",
-        phone="0812345678",
-        pickup="Pinetown",
-        destination="King Shaka Airport",
-        vehicle="7 Seater",
-        driver="Ngwane",
-        fare=550,
-        fuel_cost=120,
-        payment_method="Cash",
-        trip_date="2026-06-27"
-    )
+def show_dashboard():
 
     print("\n========== AI BUSINESS DASHBOARD ==========")
     print(f"🚖 Total Trips      : {total_trips()}")
@@ -35,6 +21,78 @@ def main():
     print(f"💵 Average Fare     : R{average_fare():.2f}")
     print(f"🛣️ Popular Route    : {most_popular_route()}")
     print("===========================================")
+
+
+def add_new_trip():
+
+    print("\n----- Add New Trip -----")
+
+    customer = input("Customer Name: ")
+    phone = input("Phone Number: ")
+    pickup = input("Pickup: ")
+    destination = input("Destination: ")
+    vehicle = input("Vehicle: ")
+    driver = input("Driver: ")
+
+    fare = float(input("Fare: R"))
+    fuel = float(input("Fuel Cost: R"))
+
+    payment = input("Payment Method: ")
+    date = input("Trip Date (YYYY-MM-DD): ")
+
+    add_trip(
+        customer,
+        phone,
+        pickup,
+        destination,
+        vehicle,
+        driver,
+        fare,
+        fuel,
+        payment,
+        date
+    )
+
+
+def show_all_trips():
+
+    trips = view_trips()
+
+    print("\n========== ALL TRIPS ==========")
+
+    for trip in trips:
+        print(trip)
+
+
+def main():
+
+    create_tables()
+
+    while True:
+
+        print("\n========== AI BUSINESS OS ==========")
+        print("1. Add Trip")
+        print("2. Business Dashboard")
+        print("3. View All Trips")
+        print("4. Exit")
+
+        choice = input("\nChoose an option: ")
+
+        if choice == "1":
+            add_new_trip()
+
+        elif choice == "2":
+            show_dashboard()
+
+        elif choice == "3":
+            show_all_trips()
+
+        elif choice == "4":
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid option.")
 
 
 if __name__ == "__main__":
