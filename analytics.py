@@ -45,3 +45,12 @@ def highest_fare():
             highest = trip[7]
 
     return highest
+
+def average_fare():
+
+    trips = view_trips()
+
+    if not trips:
+        return 0
+
+    return total_revenue() / len(trips)
