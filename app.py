@@ -1,4 +1,10 @@
-from database import create_tables, add_trip, view_trips
+from database import (
+    create_tables,
+    add_trip,
+    view_trips,
+    search_customer
+)
+
 from analytics import (
     total_trips,
     total_revenue,
@@ -60,7 +66,27 @@ def show_all_trips():
 
     print("\n========== ALL TRIPS ==========")
 
+    if not trips:
+        print("No trips found.")
+        return
+
     for trip in trips:
+        print(trip)
+
+
+def find_customer():
+
+    name = input("\nEnter customer name: ")
+
+    results = search_customer(name)
+
+    if not results:
+        print("No customer found.")
+        return
+
+    print("\n========== SEARCH RESULTS ==========")
+
+    for trip in results:
         print(trip)
 
 
@@ -74,7 +100,8 @@ def main():
         print("1. Add Trip")
         print("2. Business Dashboard")
         print("3. View All Trips")
-        print("4. Exit")
+        print("4. Search Customer")
+        print("5. Exit")
 
         choice = input("\nChoose an option: ")
 
@@ -88,11 +115,14 @@ def main():
             show_all_trips()
 
         elif choice == "4":
+            find_customer()
+
+        elif choice == "5":
             print("Goodbye!")
             break
 
         else:
-            print("Invalid option.")
+            print("Invalid option. Please try again.")
 
 
 if __name__ == "__main__":
