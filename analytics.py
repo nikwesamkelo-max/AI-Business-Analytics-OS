@@ -54,3 +54,23 @@ def average_fare():
         return 0
 
     return total_revenue() / len(trips)
+
+def most_popular_route():
+
+    trips = view_trips()
+
+    if not trips:
+        return "No trips"
+
+    routes = {}
+
+    for trip in trips:
+
+        route = f"{trip[3]} → {trip[4]}"
+
+        if route in routes:
+            routes[route] += 1
+        else:
+            routes[route] = 1
+
+    return max(routes, key=routes.get)
