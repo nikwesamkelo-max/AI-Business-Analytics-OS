@@ -89,3 +89,19 @@ def view_trips():
     conn.close()
 
     return trips
+    
+def search_customer(customer_name):
+
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT * FROM trips
+        WHERE customer_name LIKE ?
+    """, (f"%{customer_name}%",))
+
+    results = cursor.fetchall()
+
+    conn.close()
+
+    return results
