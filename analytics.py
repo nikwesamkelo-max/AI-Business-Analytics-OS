@@ -30,3 +30,18 @@ def total_fuel_cost():
 
 def total_profit():
     return total_revenue() - total_fuel_cost()
+
+def highest_fare():
+
+    trips = view_trips()
+
+    if not trips:
+        return 0
+
+    highest = trips[0][7]
+
+    for trip in trips:
+        if trip[7] > highest:
+            highest = trip[7]
+
+    return highest
