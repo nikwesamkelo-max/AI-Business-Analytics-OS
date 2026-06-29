@@ -64,14 +64,28 @@ def show_all_trips():
 
     trips = view_trips()
 
-    print("\n========== ALL TRIPS ==========")
-
     if not trips:
-        print("No trips found.")
+        print("\nNo trips found.")
         return
 
+    print("\n========== ALL TRIPS ==========\n")
+
     for trip in trips:
-        print(trip)
+
+        print("=" * 40)
+        print(f"Trip ID      : {trip[0]}")
+        print(f"Customer     : {trip[1]}")
+        print(f"Phone        : {trip[2]}")
+        print(f"Pickup       : {trip[3]}")
+        print(f"Destination  : {trip[4]}")
+        print(f"Vehicle      : {trip[5]}")
+        print(f"Driver       : {trip[6]}")
+        print(f"Fare         : R{trip[7]:.2f}")
+        print(f"Fuel Cost    : R{trip[8]:.2f}")
+        print(f"Payment      : {trip[9]}")
+        print(f"Status       : {trip[10]}")
+        print(f"Trip Date    : {trip[11]}")
+        print("=" * 40)
 
 
 def find_customer():
@@ -81,13 +95,27 @@ def find_customer():
     results = search_customer(name)
 
     if not results:
-        print("No customer found.")
+        print("\nCustomer not found.")
         return
 
-    print("\n========== SEARCH RESULTS ==========")
+    print("\n========== SEARCH RESULTS ==========\n")
 
     for trip in results:
-        print(trip)
+
+        print("=" * 40)
+        print(f"Trip ID      : {trip[0]}")
+        print(f"Customer     : {trip[1]}")
+        print(f"Phone        : {trip[2]}")
+        print(f"Pickup       : {trip[3]}")
+        print(f"Destination  : {trip[4]}")
+        print(f"Vehicle      : {trip[5]}")
+        print(f"Driver       : {trip[6]}")
+        print(f"Fare         : R{trip[7]:.2f}")
+        print(f"Fuel Cost    : R{trip[8]:.2f}")
+        print(f"Payment      : {trip[9]}")
+        print(f"Status       : {trip[10]}")
+        print(f"Trip Date    : {trip[11]}")
+        print("=" * 40)
 
 
 def main():
