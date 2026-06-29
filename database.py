@@ -4,8 +4,12 @@ DATABASE_NAME = "data/business.db"
 
 
 def connect():
-    """Connect to the SQLite database."""
-    return sqlite3.connect(DATABASE_NAME)
+
+    conn = sqlite3.connect(DATABASE_NAME)
+
+    conn.row_factory = sqlite3.Row
+
+    return conn
 
 
 def create_tables():
