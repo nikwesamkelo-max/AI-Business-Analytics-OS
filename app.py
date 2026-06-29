@@ -100,22 +100,22 @@ def find_customer():
 
     print("\n========== SEARCH RESULTS ==========\n")
 
-    for trip in results:
+    for trip in trips:
 
         print("=" * 40)
-        print(f"Trip ID      : {trip[0]}")
-        print(f"Customer     : {trip[1]}")
-        print(f"Phone        : {trip[2]}")
-        print(f"Pickup       : {trip[3]}")
-        print(f"Destination  : {trip[4]}")
-        print(f"Vehicle      : {trip[5]}")
-        print(f"Driver       : {trip[6]}")
-        print(f"Fare         : R{trip[7]:.2f}")
-        print(f"Fuel Cost    : R{trip[8]:.2f}")
-        print(f"Payment      : {trip[9]}")
-        print(f"Status       : {trip[10]}")
-        print(f"Trip Date    : {trip[11]}")
-        print("=" * 40)
+print(f"Trip ID      : {trip['id']}")
+print(f"Customer     : {trip['customer_name']}")
+print(f"Phone        : {trip['phone']}")
+print(f"Pickup       : {trip['pickup']}")
+print(f"Destination  : {trip['destination']}")
+print(f"Vehicle      : {trip['vehicle']}")
+print(f"Driver       : {trip['driver']}")
+print(f"Fare         : R{trip['fare']:.2f}")
+print(f"Fuel Cost    : R{trip['fuel_cost']:.2f}")
+print(f"Payment      : {trip['payment_method']}")
+print(f"Status       : {trip['status']}")
+print(f"Trip Date    : {trip['trip_date']}")
+print("=" * 40)
 
 
 def main():
