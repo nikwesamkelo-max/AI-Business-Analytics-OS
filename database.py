@@ -109,3 +109,19 @@ def search_customer(customer_name):
     conn.close()
 
     return results
+
+def update_trip_status(trip_id, new_status):
+
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        UPDATE trips
+        SET status = ?
+        WHERE id = ?
+    """, (new_status, trip_id))
+
+    conn.commit()
+    conn.close()
+
+    print("✅ Trip status updated successfully.")
