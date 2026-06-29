@@ -100,7 +100,7 @@ def find_customer():
 
     print("\n========== SEARCH RESULTS ==========\n")
 
-    for trip in trips:
+    for trip in results:
 
         print("=" * 40)
 print(f"Trip ID      : {trip['id']}")
