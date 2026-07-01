@@ -145,7 +145,12 @@ def update_status():
         return
 
     update_trip_status(trip_id, status_map[choice])
+    
+def delete_customer_menu():
 
+    customer_id = int(input("\nEnter Customer ID to delete: "))
+
+    delete_customer(customer_id)
 
 def main():
 
