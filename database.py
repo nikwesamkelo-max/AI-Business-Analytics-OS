@@ -237,3 +237,21 @@ def get_total_revenue():
         return 0
 
     return total
+
+def get_top_customers():
+
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT customer_id, COUNT(*) as total_trips
+        FROM trips
+        GROUP BY customer_id
+        ORDER BY total_trips DESC
+        LIMIT 5
+    """)
+
+    result = cursor.fetchall()
+    conn.close()
+
+    return result
