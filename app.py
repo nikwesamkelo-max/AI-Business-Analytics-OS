@@ -2,7 +2,8 @@ from database import (
     create_tables,
     add_trip,
     view_trips,
-    search_customer
+    search_customer,
+    update_trip_status
 )
 
 from analytics import (
