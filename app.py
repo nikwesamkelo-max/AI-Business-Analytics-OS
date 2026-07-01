@@ -157,6 +157,47 @@ def show_total_trips():
 
     total = get_total_trips()
     print(f"\nTotal Trips: {total}")
+    
+
+def show_completed_trips():
+
+    total = get_completed_trips()
+    print(f"\nCompleted Trips: {total}")
+
+
+def show_active_trips():
+
+    total = get_active_trips()
+    print(f"\nActive Trips: {total}")
+
+
+def show_cancelled_trips():
+
+    total = get_cancelled_trips()
+    print(f"\nCancelled Trips: {total}")
+
+
+def show_cancellation_rate():
+
+    rate = get_cancellation_rate()
+    print(f"\nCancellation Rate: {rate:.2f}%")
+
+
+def show_top_customers():
+
+    customers = get_top_customers()
+
+    print("\nTop Customers:")
+    print("----------------")
+
+    for customer in customers:
+        print(f"Customer ID: {customer[0]} | Trips: {customer[1]}")
+
+
+def show_revenue():
+
+    revenue = get_total_revenue()
+    print(f"\nTotal Revenue: R{revenue}")
 
 def main():
 
