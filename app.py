@@ -6,8 +6,6 @@ from database import (
     find_customer,
     update_trip_status,
     delete_customer,
-
-    # Sprint 4 analytics
     get_total_trips,
     get_completed_trips,
     get_active_trips,
@@ -214,14 +212,25 @@ def main():
 
     create_tables()
 
-    while True:
+        while True:
 
-        print("\n========== AI BUSINESS OS ==========")
-        print("1. Add Trip")
-        print("2. Business Dashboard")
-        print("3. View All Trips")
-        print("4. Search Customer")
-        print("5. Exit")
+    print("\n===== TRANSPORT SYSTEM =====")
+    print("1. Add Customer")
+    print("2. Book Trip")
+    print("3. View Customers")
+    print("4. View Trips")
+    print("5. Find Customer")
+    print("6. Update Trip Status")
+    print("7. Delete Customer")
+    print("8. Total Trips")
+    print("9. Completed Trips")
+    print("10. Active Trips")
+    print("11. Cancelled Trips")
+    print("12. Cancellation Rate")
+    print("13. Total Revenue")
+    print("14. Top Customers")
+
+    print("0. Exit")
 
         choice = input("\nChoose an option: ")
 
