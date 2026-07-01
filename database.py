@@ -125,3 +125,18 @@ def update_trip_status(trip_id, new_status):
     conn.close()
 
     print("✅ Trip status updated successfully.")
+
+def delete_customer(customer_id):
+
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM customers WHERE customer_id = ?",
+        (customer_id,)
+    )
+
+    conn.commit()
+    conn.close()
+
+    print("Customer deleted successfully.")
