@@ -232,27 +232,50 @@ def main():
 
     print("0. Exit")
 
-        choice = input("\nChoose an option: ")
+        choice = input("\nSelect option: ")
 
-        if choice == "1":
-            add_new_trip()
+    if choice == "1":
+        add_customer()
 
-        elif choice == "2":
-            show_dashboard()
+    elif choice == "2":
+        book_trip()
 
-        elif choice == "3":
-            show_all_trips()
+    elif choice == "3":
+        view_customers()
 
-        elif choice == "4":
-            find_customer()
+    elif choice == "4":
+        view_trips()
 
-        elif choice == "5":
-            print("Goodbye!")
-            break
+    elif choice == "5":
+        find_customer()
 
-        else:
-            print("Invalid option. Please try again.")
+    elif choice == "6":
+        update_status()
 
+    elif choice == "7":
+        delete_customer_menu()
 
-if __name__ == "__main__":
-    main()
+    elif choice == "8":
+        show_total_trips()
+
+    elif choice == "9":
+        show_completed_trips()
+
+    elif choice == "10":
+        show_active_trips()
+
+    elif choice == "11":
+        show_cancelled_trips()
+
+    elif choice == "12":
+        show_cancellation_rate()
+
+    elif choice == "13":
+        show_revenue()
+
+    elif choice == "14":
+        show_top_customers()
+
+    elif choice == "0":
+        print("Exiting system...")
+        break
