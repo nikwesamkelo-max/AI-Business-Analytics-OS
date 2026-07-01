@@ -119,6 +119,34 @@ print(f"Trip Date    : {trip['trip_date']}")
 print("=" * 40)
 
 
+def update_status():
+
+    trip_id = int(input("\nEnter Trip ID: "))
+
+    print("\nChoose New Status")
+    print("1. Booked")
+    print("2. Driver Assigned")
+    print("3. In Progress")
+    print("4. Completed")
+    print("5. Cancelled")
+
+    choice = input("\nSelect Status: ")
+
+    status_map = {
+        "1": "Booked",
+        "2": "Driver Assigned",
+        "3": "In Progress",
+        "4": "Completed",
+        "5": "Cancelled"
+    }
+
+    if choice not in status_map:
+        print("Invalid status selected.")
+        return
+
+    update_trip_status(trip_id, status_map[choice])
+
+
 def main():
 
     create_tables()
@@ -156,31 +184,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-def update_status():
-
-    trip_id = int(input("\nEnter Trip ID: "))
-
-    print("\nChoose New Status")
-    print("1. Booked")
-    print("2. Driver Assigned")
-    print("3. In Progress")
-    print("4. Completed")
-    print("5. Cancelled")
-
-    choice = input("Select: ")
-
-    status_map = {
-        "1": "Booked",
-        "2": "Driver Assigned",
-        "3": "In Progress",
-        "4": "Completed",
-        "5": "Cancelled"
-    }
-
-    if choice not in status_map:
-        print("Invalid status selected.")
-        return
-
-    update_trip_status(trip_id, status_map[choice])
