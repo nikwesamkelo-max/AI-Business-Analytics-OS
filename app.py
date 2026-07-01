@@ -152,6 +152,12 @@ def delete_customer_menu():
 
     delete_customer(customer_id)
 
+
+def show_total_trips():
+
+    total = get_total_trips()
+    print(f"\nTotal Trips: {total}")
+
 def main():
 
     create_tables()
