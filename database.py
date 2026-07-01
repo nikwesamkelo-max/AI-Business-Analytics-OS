@@ -181,3 +181,18 @@ def get_active_trips():
     total = cursor.fetchone()[0]
     conn.close()
     return total
+
+def get_cancelled_trips():
+
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT COUNT(*) 
+        FROM trips 
+        WHERE status = 'Cancelled'
+    """)
+
+    total = cursor.fetchone()[0]
+    conn.close()
+    return total
