@@ -166,3 +166,18 @@ def get_completed_trips():
     total = cursor.fetchone()[0]
     conn.close()
     return total
+
+def get_active_trips():
+
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT COUNT(*) 
+        FROM trips 
+        WHERE status = 'In Progress'
+    """)
+
+    total = cursor.fetchone()[0]
+    conn.close()
+    return total
