@@ -196,3 +196,25 @@ def get_cancelled_trips():
     total = cursor.fetchone()[0]
     conn.close()
     return total
+
+def get_cancellation_rate():
+
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM trips")
+    total_trips = cursor.fetchone()[0]
+
+    cursor.execute("""
+        SELECT COUNT(*) 
+        FROM trips 
+        WHERE status = 'Cancelled'
+    """)
+    cancelled = cursor.fetchone()[0]
+
+    conn.close()
+
+    if total_trips == 0:
+        return 0
+
+    return (cancelled / total_trips) * 100
