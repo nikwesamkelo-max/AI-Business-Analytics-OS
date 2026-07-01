@@ -218,3 +218,22 @@ def get_cancellation_rate():
         return 0
 
     return (cancelled / total_trips) * 100
+
+def get_total_revenue():
+
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT SUM(fare)
+        FROM trips
+        WHERE status = 'Completed'
+    """)
+
+    total = cursor.fetchone()[0]
+    conn.close()
+
+    if total is None:
+        return 0
+
+    return total
