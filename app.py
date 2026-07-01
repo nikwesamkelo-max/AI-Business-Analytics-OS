@@ -1,9 +1,20 @@
 from database import (
-    create_tables,
-    add_trip,
+    add_customer,
+    book_trip,
+    view_customers,
     view_trips,
-    search_customer,
-    update_trip_status
+    find_customer,
+    update_trip_status,
+    delete_customer,
+
+    # Sprint 4 analytics
+    get_total_trips,
+    get_completed_trips,
+    get_active_trips,
+    get_cancelled_trips,
+    get_cancellation_rate,
+    get_total_revenue,
+    get_top_customers
 )
 
 from analytics import (
