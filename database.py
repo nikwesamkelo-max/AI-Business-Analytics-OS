@@ -140,3 +140,14 @@ def delete_customer(customer_id):
     conn.close()
 
     print("Customer deleted successfully.")
+
+def get_total_trips():
+
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM trips")
+    total = cursor.fetchone()[0]
+
+    conn.close()
+    return total
